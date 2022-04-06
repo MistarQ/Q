@@ -7,10 +7,6 @@ import (
 	"net"
 )
 
-var topLine = `┌───────────────────────────────────────────────────┐`
-var borderLine = `│`
-var bottomLine = `└───────────────────────────────────────────────────┘`
-
 type Server struct {
 	Name string
 
@@ -32,7 +28,6 @@ type Server struct {
 }
 
 func NewServer(opts ...Option) qiface.IServer {
-	printLogo()
 
 	s := &Server{
 		Name:        utils.GlobalObject.Name,
@@ -150,14 +145,4 @@ func (s *Server) CallOnConnStop(conn qiface.IConnection) {
 
 func (s *Server) DataPack() qiface.IDataPack {
 	return s.dataPack
-}
-
-func printLogo() {
-	fmt.Println(topLine)
-	fmt.Println(fmt.Sprintf("%s [Github] https://github.com/MistarQ                 %s", borderLine, borderLine))
-	fmt.Println(bottomLine)
-	fmt.Printf("[Q] Version: %s, MaxConn: %d, MaxPackageSize: %d\n",
-		utils.GlobalObject.Version,
-		utils.GlobalObject.MaxConn,
-		utils.GlobalObject.MaxPackageSize)
 }

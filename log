@@ -1,0 +1,8 @@
+2022/04/06 14:10:13 [FATAL]globalobj.go:58: Fatal error getting config file: %s
+ Config File "dev" Not Found in "[/Users/shiqiu/Desktop/Q/conf]"
+2022/04/06 14:13:01 [FATAL]globalobj.go:58: Fatal error getting config file: %s
+ Config File "dev" Not Found in "[/Users/shiqiu/Desktop/Q/conf]"
+2022/04/06 14:13:20 [FATAL]globalobj.go:58: Fatal error getting config file: %s
+ Config File "dev" Not Found in "[/Users/shiqiu/Desktop/Q/conf]"
+2022/04/06 14:13:26 [FATAL]globalobj.go:58: Fatal error getting config file: %s
+ Config File "dev" Not Found in "[/Users/shiqiu/Desktop/Q/conf]"

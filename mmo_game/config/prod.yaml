@@ -1,0 +1,17 @@
+# Q basic setting
+Q:
+  name: "Q"
+  version: "V0.2"
+  port: 8888
+  host: "127.0.0.1"
+  maxConn: 100000
+  maxPackageSize: 2048
+  workPoolSize: 20
+  maxWorkerTaskLen: 2048
+  maxMsgChanLen:
+
+# logger setting
+log:
+  logDir: "."
+  logFile: log
+  logDebugClose: false
