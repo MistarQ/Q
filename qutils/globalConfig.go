@@ -10,15 +10,15 @@ import (
 
 var (
 	env  = flag.String("e", "prod", " -e, dev | test | prod")
-	name = flag.String("n", "mmo_game", " -n, set name")
+	name = flag.String("m", "mmo_game", " -m, module name, for one module project it should be \".\" ")
 )
 
 type GlobalConfig struct {
 	Host    string
-	TcpPort int
+	Port    int
 	Name    string
+	Version string
 
-	Version          string
 	MaxConn          int
 	MaxPackageSize   uint32
 	WorkerPoolSize   uint32
@@ -40,7 +40,7 @@ func init() {
 	GlobalObject = &GlobalConfig{
 		Name:             "Q",
 		Version:          "default",
-		TcpPort:          8999,
+		Port:             8999,
 		Host:             "0.0.0.0",
 		MaxConn:          1000,
 		MaxPackageSize:   4096,
@@ -67,7 +67,7 @@ func init() {
 	GlobalObject = &GlobalConfig{
 		Name:             viper.GetString("Q.name"),
 		Version:          viper.GetString("Q.version"),
-		TcpPort:          viper.GetInt("Q.port"),
+		Port:             viper.GetInt("Q.port"),
 		Host:             viper.GetString("Q.host"),
 		MaxConn:          viper.GetInt("Q.maxConn"),
 		MaxPackageSize:   viper.GetUint32("Q.maxPackageSize"),

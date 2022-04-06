@@ -33,7 +33,7 @@ func NewServer(opts ...Option) qiface.IServer {
 		Name:        utils.GlobalObject.Name,
 		IPVersion:   "tcp4",
 		IP:          utils.GlobalObject.Host,
-		Port:        utils.GlobalObject.TcpPort,
+		Port:        utils.GlobalObject.Port,
 		MsgHandler:  NewMsgHandler(),
 		ConnManager: NewConnManager(),
 		dataPack:    NewDataPack(),
@@ -48,7 +48,7 @@ func NewServer(opts ...Option) qiface.IServer {
 
 func (s *Server) Start() {
 	fmt.Printf("[Q] Serer Name: %s, listener at IP : %s, Port:%d is starting\n",
-		utils.GlobalObject.Name, utils.GlobalObject.Host, utils.GlobalObject.TcpPort)
+		utils.GlobalObject.Name, utils.GlobalObject.Host, utils.GlobalObject.Port)
 	fmt.Printf("[Q] Version %s, MaxConn:%d, MaxPacketSize:%d\n",
 		utils.GlobalObject.Version, utils.GlobalObject.MaxConn, utils.GlobalObject.MaxPackageSize)
 

@@ -107,8 +107,8 @@ func (c *Connection) StartWriter() {
 		case data, ok := <-c.msgBuffChan:
 			if !ok {
 				fmt.Println("msg buff chan is closed")
-				break
-				// return
+				// break
+				return
 			}
 			if _, err := c.Conn.Write(data); err != nil {
 				fmt.Println("Send data error", err)
