@@ -1,0 +1,124 @@
+syntax = "proto3";
+package pb;
+option csharp_namespace = "Pb";
+option go_package = "./;pb";
+
+// 玩家信息
+message Player {
+  uint32 id = 1;
+  string name = 2;
+  uint32 level = 3;
+  uint32 job = 4;
+}
+
+message Boss {
+  uint32 id = 1;
+  string name = 2;
+  uint32 hp = 3;
+  uint32 atk = 4;
+  uint32 def = 5;
+}
+
+// 房间信息
+message Room {
+  uint32 id = 1;
+  Boss boss = 2;
+  repeated Player playerList = 3;
+}
+
+message LoginReq{
+  string account = 1;
+  string password = 2;
+}
+
+message LoginRes {
+  int32 result = 1;
+}
+
+message RegisterReq {
+  LoginReq req = 1;
+}
+
+message RegisterRes {
+  int32 result = 1;
+}
+
+message ProfileReq {
+  string account = 1;
+}
+
+message ProfileRes {
+  Player player = 1;
+}
+
+message RoomListReq {
+  // uint32 server = 1;
+}
+
+message RoomListRes {
+  // uint32 serverId = 1;
+  repeated Room roomList = 2;
+}
+
+message CreateRoomReq {
+  uint32 bossId = 1;
+}
+
+message CreateRoomRes {
+  int32 result = 1;
+}
+
+message EnterRoomReq {
+  uint32 roomId = 1;
+}
+
+message EnterRoomRes {
+  uint32 code = 1;
+  Room  room = 2;
+}
+
+message LeaveRoomReq {
+  uint32 roomId = 1;
+}
+
+message LeaveRoomRes {
+  uint32 code = 1;
+}
+
+message AttackReq {
+  uint32 roomId = 1;
+  uint32 playerId = 2;
+}
+
+message AttackRes {
+  uint32 roomId = 1;
+  uint32 playerId = 2;
+  Boss boss = 3;
+  // TODO battle log
+}
+
+message SkillReq {
+  uint32 roomId = 1;
+  uint32 playerId = 2;
+  uint32 heroId = 3;
+  uint32 skillId = 4;
+}
+
+message SkillRes {
+  uint32 roomId = 1;
+  uint32 playerId = 2;
+  // TODO battle log
+}
+
+message SummonerReq {
+  uint32 roomId = 1;
+  uint32 playerId = 2;
+  uint32 summonId = 3;
+}
+
+message SummonerRes {
+  uint32 roomId = 1;
+  uint32 playerId = 2;
+  uint32 summonId = 3;
+  // TODO battle log
+}

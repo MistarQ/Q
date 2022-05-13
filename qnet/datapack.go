@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
+	"fmt"
 )
 
 type DataPack struct {
@@ -37,6 +38,8 @@ func (d *DataPack) Pack(msg qiface.IMessage) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	fmt.Println("msgLen: ", msg.GetDataLen(), ", msg id: ", msg.GetMsgId(), ", proto data:", string(msg.GetData()))
 
 	return dataBuff.Bytes(), nil
 }

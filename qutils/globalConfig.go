@@ -10,7 +10,7 @@ import (
 
 var (
 	env  = flag.String("e", "prod", " -e, dev | test | prod")
-	name = flag.String("m", "mmo_game", " -m, module name, for one module project it should be \".\" ")
+	name = flag.String("m", "granBlueFantasy", " -m, module name, for one module project it should be \".\" ")
 )
 
 type GlobalConfig struct {
