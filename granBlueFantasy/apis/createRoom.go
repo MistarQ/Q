@@ -23,11 +23,13 @@ func (*CreateRoomApi) Handle(request qiface.IRequest) {
 		return
 	}
 
-	// TODO
-	core.TheWorldManager.CreateRoom(reqMsg.BossId, 0)
+	core.TheWorldManager.CreateRoom(reqMsg.BossId, request.GetConnection().GetConnID())
 
 	resMsg := &accountMsg.CreateRoomRes{
-		Result: 1,
+		Res: &accountMsg.BaseResponse{
+			Code:    0,
+			Message: "创建房间成功",
+		},
 	}
 
 	resMsgProto, err := proto.Marshal(resMsg)

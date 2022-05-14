@@ -23,7 +23,7 @@ message Boss {
 message Room {
   uint32 id = 1;
   Boss boss = 2;
-  repeated Player playerList = 3;
+  map<uint32, Player> playerMap = 3;
 }
 
 // 基础账号信息
@@ -34,13 +34,13 @@ message Account {
 
 // 基础响应信息
 message BaseResponse {
-    uint32 code = 1;
-    string message = 2;
+  uint32 code = 1;
+  string message = 2;
 }
 
 // 登陆请求
 message LoginReq{
-  Account account= 1;
+  Account account = 1;
 }
 
 message RegisterReq {
@@ -49,6 +49,7 @@ message RegisterReq {
 
 message LoginRes {
   BaseResponse res = 1;
+  uint32 id = 2;
 }
 
 message RegisterRes {
@@ -77,7 +78,7 @@ message CreateRoomReq {
 }
 
 message CreateRoomRes {
-  int32 result = 1;
+  BaseResponse res = 1;
 }
 
 message EnterRoomReq {
@@ -85,7 +86,7 @@ message EnterRoomReq {
 }
 
 message EnterRoomRes {
-  uint32 code = 1;
+  BaseResponse res = 1;
   Room  room = 2;
 }
 
@@ -94,7 +95,7 @@ message LeaveRoomReq {
 }
 
 message LeaveRoomRes {
-  uint32 code = 1;
+  BaseResponse res = 1;
 }
 
 message AttackReq {
@@ -103,9 +104,10 @@ message AttackReq {
 }
 
 message AttackRes {
-  uint32 roomId = 1;
-  uint32 playerId = 2;
-  Boss boss = 3;
+  BaseResponse res = 1;
+  uint32 roomId = 2;
+  uint32 playerId = 3;
+  Boss boss = 4;
   // TODO battle log
 }
 
@@ -117,8 +119,9 @@ message SkillReq {
 }
 
 message SkillRes {
-  uint32 roomId = 1;
-  uint32 playerId = 2;
+  BaseResponse res = 1;
+  uint32 roomId = 2;
+  uint32 playerId = 3;
   // TODO battle log
 }
 
@@ -129,8 +132,9 @@ message SummonerReq {
 }
 
 message SummonerRes {
-  uint32 roomId = 1;
-  uint32 playerId = 2;
-  uint32 summonId = 3;
+  BaseResponse res = 1;
+  uint32 roomId = 2;
+  uint32 playerId = 3;
+  uint32 summonId = 4;
   // TODO battle log
 }

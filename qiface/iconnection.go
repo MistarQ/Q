@@ -16,6 +16,8 @@ type IConnection interface {
 
 	GetConnID() uint32 // get connection ID
 
+	SetConnID(id uint32)
+
 	GetRemoteAddr() net.Addr // get remote addr
 
 	SendMsg(msgId uint32, data []byte) error // send msg directly

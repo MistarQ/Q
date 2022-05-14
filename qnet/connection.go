@@ -147,6 +147,10 @@ func (c *Connection) GetConnID() uint32 {
 	return c.ConnId
 }
 
+func (c *Connection) SetConnID(id uint32) {
+	c.ConnId = id
+}
+
 func (c *Connection) GetRemoteAddr() net.Addr {
 	return c.Conn.RemoteAddr()
 }

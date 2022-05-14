@@ -12,6 +12,6 @@ func (User) TableName() string {
 
 type User struct {
 	gorm.Model
-	Account  string `gorm:"type:varchar(32);not null;unique_index"`
+	Account  string `gorm:"type:varchar(32);not null;uniqueIndex:account"`
 	Password string `gorm:"type:varchar(32);not null;default:'123456'"`
 }

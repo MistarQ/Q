@@ -31,7 +31,6 @@ func (*RoomListApi) Handle(request qiface.IRequest) {
 	resMsg := &accountMsg.RoomListRes{
 		RoomList: roomList,
 	}
-
 	resMsgProto, err := proto.Marshal(resMsg)
 	if err != nil {
 		fmt.Println("RoomList Marshal error ", err)

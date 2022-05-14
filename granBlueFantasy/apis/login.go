@@ -45,6 +45,9 @@ func (*LoginApi) Handle(request qiface.IRequest) {
 		} else {
 			resMsg.GetRes().Message = "登陆失败, " + err.Error()
 		}
+	} else {
+		resMsg.Id = uint32(u.ID)
+		request.GetConnection().SetConnID(uint32(u.ID))
 	}
 
 	resMsgProto, err := proto.Marshal(resMsg)

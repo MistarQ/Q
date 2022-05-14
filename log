@@ -6,3 +6,11 @@
  Config File "dev" Not Found in "[/Users/shiqiu/Desktop/Q/conf]"
 2022/04/06 14:13:26 [FATAL]globalobj.go:58: Fatal error getting config file: %s
  Config File "dev" Not Found in "[/Users/shiqiu/Desktop/Q/conf]"
+2022/05/14 17:45:52 [INFO]room.go:24: 房间  map[]
+2022/05/14 17:46:16 [INFO]room.go:26: 房间  map[]
+2022/05/14 17:46:52 [INFO]room.go:27: 房间  map[0:boss:{name:"tmpBoss"  hp:100  atk:10  def:10}  playerMap:{key:1  value:{}}]
+2022/05/14 17:48:57 [INFO]room.go:27: 房间  map[0:boss:{name:"tmpBoss"  hp:100  atk:10  def:10}  playerMap:{key:1  value:{}}]
+2022/05/14 17:49:36 [INFO]room.go:27: 房间  map[0:boss:{name:"tmpBoss"  hp:100  atk:10  def:10}  playerMap:{key:1  value:{}}]
+2022/05/14 17:51:57 [INFO]room.go:27: 房间  map[0:boss:{name:"tmpBoss"  hp:100  atk:10  def:10}  playerMap:{key:1  value:{}}]
+2022/05/14 18:12:05 [INFO]room.go:27: 房间  map[0:boss:{name:"tmpBoss"  hp:100  atk:10  def:10}  playerMap:{key:1  value:{}}]
+2022/05/14 18:33:35 [INFO]room.go:27: 房间  map[0:boss:{name:"tmpBoss"  hp:100  atk:10  def:10}  playerMap:{key:1  value:{}}]

@@ -23,11 +23,13 @@ func (*JoinRoomApi) Handle(request qiface.IRequest) {
 		return
 	}
 
-	// TODO
-	room := core.TheWorldManager.JoinRoom(reqMsg.RoomId, 0)
+	room := core.TheWorldManager.JoinRoom(reqMsg.RoomId, request.GetConnection().GetConnID())
 
 	resMsg := &accountMsg.EnterRoomRes{
-		Code: 1,
+		Res: &accountMsg.BaseResponse{
+			Code:    0,
+			Message: "进入房间成功",
+		},
 		Room: room,
 	}
 
