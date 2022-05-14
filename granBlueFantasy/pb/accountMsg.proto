@@ -26,21 +26,33 @@ message Room {
   repeated Player playerList = 3;
 }
 
-message LoginReq{
+// 基础账号信息
+message Account {
   string account = 1;
   string password = 2;
 }
 
-message LoginRes {
-  int32 result = 1;
+// 基础响应信息
+message BaseResponse {
+    uint32 code = 1;
+    string message = 2;
+}
+
+// 登陆请求
+message LoginReq{
+  Account account= 1;
 }
 
 message RegisterReq {
-  LoginReq req = 1;
+  Account account = 1;
+}
+
+message LoginRes {
+  BaseResponse res = 1;
 }
 
 message RegisterRes {
-  int32 result = 1;
+  BaseResponse res = 1;
 }
 
 message ProfileReq {

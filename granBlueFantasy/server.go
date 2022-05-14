@@ -2,6 +2,7 @@ package main
 
 import (
 	"Q/granBlueFantasy/apis"
+	"Q/granBlueFantasy/db"
 	"Q/qiface"
 	"Q/qnet"
 )
@@ -27,6 +28,8 @@ func main() {
 	s.AddRouter(10009, &apis.JoinRoomApi{})
 	s.AddRouter(10015, &apis.RegisterApi{})
 	s.AddRouter(20001, &apis.AttackApi{})
+
+	db.InitDB()
 
 	s.Serve()
 }

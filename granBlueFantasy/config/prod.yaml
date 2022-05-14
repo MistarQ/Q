@@ -15,3 +15,13 @@ log:
   logDir: "."
   logFile: log
   logDebugClose: false
+
+# mysql
+mysql:
+  Engine: "mysql"
+  Host: "127.0.0.1"
+  Port: 3306
+  User: "root"
+  Password: "root"
+  Name: "granBlue"
+  TimeOut: "10s"

@@ -1,11 +1,14 @@
 package apis
 
 import (
+	"Q/granBlueFantasy/db"
 	accountMsg "Q/granBlueFantasy/pb"
 	"Q/qiface"
 	"Q/qnet"
+	"errors"
 	"fmt"
 	"github.com/golang/protobuf/proto"
+	"gorm.io/gorm"
 )
 
 type LoginApi struct {
@@ -23,9 +26,25 @@ func (*LoginApi) Handle(request qiface.IRequest) {
 	}
 
 	// TODO 验证登陆信息
+	u := &db.User{
+		Account:  reqMsg.GetAccount().GetAccount(),
+		Password: reqMsg.GetAccount().GetPassword(),
+	}
 
 	resMsg := &accountMsg.LoginRes{
-		Result: 1,
+		Res: &accountMsg.BaseResponse{
+			Code:    0,
+			Message: "登陆成功",
+		},
+	}
+
+	if err := db.Mysql.Take(u).Error; err != nil {
+		resMsg.GetRes().Code = 1
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			resMsg.GetRes().Message = "账号或密码错误"
+		} else {
+			resMsg.GetRes().Message = "登陆失败, " + err.Error()
+		}
 	}
 
 	resMsgProto, err := proto.Marshal(resMsg)
